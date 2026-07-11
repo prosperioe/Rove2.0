@@ -1,0 +1,224 @@
+{% extends 'core/base.html' %}
+{% block content %}
+
+<div class="relative overflow-hidden flex flex-col items-center justify-center min-h-[90vh] text-center px-4">
+    <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] bg-brand-light/10 dark:bg-brand-light/5 blur-[120px] rounded-full pointer-events-none">
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto mt-16">
+        <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight text-gray-900 dark:text-white">
+            Building Autonomous Intelligence for the <br class="hidden md:block">
+            <span class="text-brand-light">Next Generation</span> of Human Progress
+        </h1>
+
+        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-10 font-light">
+            AI Agents, Neural Networks, Robotics, Automation, and Enterprise Intelligence Systems.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="{% url 'booking_portal' %}"
+                class="w-full sm:w-auto px-8 py-3 rounded-md bg-black text-white dark:bg-white dark:text-black font-medium hover:scale-105 transition-transform duration-200">
+                Book a Consultation
+            </a>
+            <a href="#products"
+                class="w-full sm:w-auto px-8 py-3 rounded-md border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-[#111] transition-colors duration-200">
+                Explore Products
+            </a>
+            <a href="#"
+                class="w-full sm:w-auto px-8 py-3 rounded-md text-brand-light hover:underline flex items-center justify-center gap-2 group">
+                Watch Demo
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                    </path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+<section class="py-32 bg-gray-50 dark:bg-[#0a0a0a] border-t border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-16 md:mb-24">
+            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">What We
+                Build</h2>
+            <p class="text-xl text-gray-500 dark:text-gray-400 max-w-2xl font-light">Core infrastructure for the
+                automated future.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div
+                class="group p-8 rounded-2xl bg-white dark:bg-[#111] border border-gray-100 dark:border-gray-800 hover:border-brand-light/50 transition-colors duration-300">
+                <div
+                    class="w-12 h-12 rounded-lg bg-gray-100 dark:bg-[#1a1a1a] flex items-center justify-center mb-6 text-brand-light">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">AI Agents</h3>
+                <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                    <li>Customer support agents</li>
+                    <li>Sales & Research agents</li>
+                    <li>Multi-agent systems</li>
+                </ul>
+            </div>
+
+            <div
+                class="group p-8 rounded-2xl bg-white dark:bg-[#111] border border-gray-100 dark:border-gray-800 hover:border-brand-light/50 transition-colors duration-300">
+                <div
+                    class="w-12 h-12 rounded-lg bg-gray-100 dark:bg-[#1a1a1a] flex items-center justify-center mb-6 text-brand-light">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Robotics</h3>
+                <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                    <li>Warehouse robots</li>
+                    <li>Delivery logistics</li>
+                    <li>Industrial automation</li>
+                </ul>
+            </div>
+
+            <div
+                class="group p-8 rounded-2xl bg-white dark:bg-[#111] border border-gray-100 dark:border-gray-800 hover:border-brand-light/50 transition-colors duration-300">
+                <div
+                    class="w-12 h-12 rounded-lg bg-gray-100 dark:bg-[#1a1a1a] flex items-center justify-center mb-6 text-brand-light">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Neural Networks</h3>
+                <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                    <li>Computer Vision</li>
+                    <li>NLP Models</li>
+                    <li>Predictive Systems</li>
+                </ul>
+            </div>
+
+            <div
+                class="group p-8 rounded-2xl bg-white dark:bg-[#111] border border-gray-100 dark:border-gray-800 hover:border-brand-light/50 transition-colors duration-300">
+                <div
+                    class="w-12 h-12 rounded-lg bg-gray-100 dark:bg-[#1a1a1a] flex items-center justify-center mb-6 text-brand-light">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Enterprise Solutions</h3>
+                <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                    <li>Business Automation</li>
+                    <li>AI Integration</li>
+                    <li>Data Intelligence</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="products" class="py-32 bg-white dark:bg-[#050505] border-t border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-16 md:mb-24">
+            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">Ecosystem
+                Products</h2>
+            <p class="text-xl text-gray-500 dark:text-gray-400 max-w-2xl font-light">Deployable intelligence ready for
+                integration.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="p-10 rounded-3xl bg-gray-50 dark:bg-[#0f0f0f] border border-gray-100 dark:border-gray-800">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">AgentOS</h3>
+                <p class="text-gray-500 dark:text-gray-400 mb-6 font-light">The foundational AI agent operating system.
+                </p>
+                <a href="#" class="text-sm font-medium text-brand-light hover:text-white transition">Explore AgentOS
+                    &rarr;</a>
+            </div>
+
+            <div class="p-10 rounded-3xl bg-gray-50 dark:bg-[#0f0f0f] border border-gray-100 dark:border-gray-800">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">NeuroMind</h3>
+                <p class="text-gray-500 dark:text-gray-400 mb-6 font-light">Custom neural network training and
+                    deployment platform.</p>
+                <a href="#" class="text-sm font-medium text-brand-light hover:text-white transition">Explore NeuroMind
+                    &rarr;</a>
+            </div>
+
+            <div class="p-10 rounded-3xl bg-gray-50 dark:bg-[#0f0f0f] border border-gray-100 dark:border-gray-800">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">RoboCore</h3>
+                <p class="text-gray-500 dark:text-gray-400 mb-6 font-light">Advanced robotics control and kinematics
+                    platform.</p>
+                <a href="#" class="text-sm font-medium text-brand-light hover:text-white transition">Explore RoboCore
+                    &rarr;</a>
+            </div>
+
+            <div class="p-10 rounded-3xl bg-gray-50 dark:bg-[#0f0f0f] border border-gray-100 dark:border-gray-800">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Nexus Agents</h3>
+                <p class="text-gray-500 dark:text-gray-400 mb-6 font-light">Multi-agent collaboration and orchestration
+                    framework.</p>
+                <a href="#" class="text-sm font-medium text-brand-light hover:text-white transition">Explore Nexus
+                    &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-32 bg-gray-50 dark:bg-[#0a0a0a] border-t border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-start md:items-end">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">
+                    Research & Impact</h2>
+                <p class="text-xl text-gray-500 dark:text-gray-400 max-w-2xl font-light">Advancing the frontier of
+                    autonomous systems.</p>
+            </div>
+            <a href="#"
+                class="mt-6 md:mt-0 px-6 py-2 border border-gray-300 dark:border-gray-700 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-[#111] transition">View
+                All Publications</a>
+        </div>
+
+        <div class="border-t border-gray-200 dark:border-gray-800">
+            <div
+                class="py-8 flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 dark:border-gray-800 group cursor-pointer hover:bg-white dark:hover:bg-[#111] px-4 -mx-4 transition-colors">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm text-brand-light font-medium mb-1">Logistics / Case Study</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">60% Faster Operations via Swarm
+                        Robotics</h3>
+                </div>
+                <div class="text-gray-500 dark:text-gray-400 group-hover:text-brand-light transition-colors">Read Paper
+                    &rarr;</div>
+            </div>
+
+            <div
+                class="py-8 flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 dark:border-gray-800 group cursor-pointer hover:bg-white dark:hover:bg-[#111] px-4 -mx-4 transition-colors">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm text-brand-light font-medium mb-1">Healthcare / Case Study</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Automated Patient Scheduling &
+                        Routing</h3>
+                </div>
+                <div class="text-gray-500 dark:text-gray-400 group-hover:text-brand-light transition-colors">Read Paper
+                    &rarr;</div>
+            </div>
+
+            <div
+                class="py-8 flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 dark:border-gray-800 group cursor-pointer hover:bg-white dark:hover:bg-[#111] px-4 -mx-4 transition-colors">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm text-brand-light font-medium mb-1">E-commerce / Case Study</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Zero-Latency AI Customer Service
+                        Integration</h3>
+                </div>
+                <div class="text-gray-500 dark:text-gray-400 group-hover:text-brand-light transition-colors">Read Paper
+                    &rarr;</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

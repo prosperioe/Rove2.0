@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="min-h-[70vh] flex flex-col items-center justify-center px-4 text-center">
+    <div
+        class="w-24 h-24 bg-brand-light/10 rounded-full flex items-center justify-center mb-8 border border-brand-light/20">
+        <svg class="w-12 h-12 text-brand-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+    </div>
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">Payment Authorized</h1>
+    <p class="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mb-10 font-light leading-relaxed">
+        Your license has been provisioned. We have dispatched an encrypted email to your inbox containing the AgentOS
+        download payload and your repository access keys.
+    </p>
+    <div class="flex gap-4">
+        <a href="{% url 'home' %}"
+            class="px-6 py-3 bg-black text-white dark:bg-white dark:text-black rounded font-medium hover:opacity-80 transition">&larr;
+            Return to Hub</a>
+        <a href="mailto:"
+            class="px-6 py-3 border border-gray-300 dark:border-gray-700 rounded font-medium text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-[#111] transition">Check
+            Inbox</a>
+    </div>
+</div>
+{% endblock %}

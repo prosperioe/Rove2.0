@@ -1,0 +1,79 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 py-16">
+
+    <div class="flex items-center gap-6 border-b border-gray-200 dark:border-gray-800 pb-8 mb-12">
+        <div
+            class="w-20 h-20 bg-brand-light/20 rounded-full flex items-center justify-center border border-brand-light text-2xl font-bold text-brand-light uppercase">
+            {{ user.username|make_list|first }}
+        </div>
+        <div>
+            <div class="text-sm font-mono text-brand-light mb-1">Clearance Level: Tier-1 Admin</div>
+            <h1 class="text-4xl font-bold text-gray-900 dark:text-white">Welcome, {{ user.username }}.</h1>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+        <div class="lg:col-span-2 space-y-8">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Secure Payloads</h2>
+
+            <div
+                class="bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-brand-light transition">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">AgentOS Core Pipeline (v2.4.0)</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">The foundational operating system. Includes
+                        Python dependencies and Docker configs.</p>
+                </div>
+                <a href="#"
+                    class="shrink-0 px-6 py-3 bg-white dark:bg-[#111] border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white rounded font-medium hover:bg-gray-100 dark:hover:bg-[#1a1a1a] transition flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    </svg>
+                    Download .ZIP
+                </a>
+            </div>
+
+            <div
+                class="bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-brand-light transition">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Neural API Keys</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Production-grade cryptographic keys for LLM
+                        access.</p>
+                </div>
+                <button
+                    class="shrink-0 px-6 py-3 bg-brand-light text-white rounded font-medium hover:bg-brand transition flex items-center gap-2">
+                    Reveal Keys &rarr;
+                </button>
+            </div>
+        </div>
+
+        <div class="space-y-8">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">System Status</h2>
+            <div class="bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-2xl p-6">
+                <div class="flex justify-between items-center mb-4 pb-4 border-b border-gray-200 dark:border-gray-800">
+                    <span class="text-gray-500 dark:text-gray-400">Global Network</span>
+                    <span class="text-brand-light font-bold flex items-center gap-2">
+                        <div class="w-2 h-2 rounded-full bg-brand-light animate-pulse"></div> Online
+                    </span>
+                </div>
+                <div class="flex justify-between items-center mb-4 pb-4 border-b border-gray-200 dark:border-gray-800">
+                    <span class="text-gray-500 dark:text-gray-400">API Latency</span>
+                    <span class="text-white font-mono">14ms</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-500 dark:text-gray-400">Active Agents</span>
+                    <span class="text-white font-mono">1,402</span>
+                </div>
+            </div>
+
+            <a href="https://github.com/rove-ai/" target="_blank"
+                class="block w-full p-4 border border-gray-200 dark:border-gray-800 rounded-lg text-center text-gray-500 dark:text-gray-400 hover:text-white hover:bg-[#111] transition">
+                Access GitHub Documentation &nearr;
+            </a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

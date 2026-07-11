@@ -1,0 +1,15 @@
+# Python & Environment
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local Database
+db.sqlite3
+
+# Environment Variables & Secrets
+.env
+
+# Static Files (Generated during deployment)
+staticfiles/

@@ -1,0 +1,69 @@
+<!-- core/templates/core/pricing.html -->
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 py-24">
+    <div class="text-center mb-16">
+        <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">Software Licensing</h1>
+        <p class="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto font-light">Purchase your license to
+            download AgentOS. Instant access to the codebase, API keys, and deployment documentation.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
+        <!-- Standard Tier -->
+        <div
+            class="p-8 rounded-2xl bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 flex flex-col hover:border-gray-400 dark:hover:border-gray-600 transition">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Developer</h3>
+            <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">For individual researchers.</p>
+            <div class="text-4xl font-bold text-gray-900 dark:text-white mb-6">$499 <span
+                    class="text-lg text-gray-500 font-normal">/license</span></div>
+            <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-4 mb-8 flex-grow">
+                <li>&check; 1 AgentOS Deployment</li>
+                <li>&check; Local execution environment</li>
+                <li>&check; Standard documentation</li>
+            </ul>
+            <a href="{% url 'checkout' 'developer' %}"
+                class="block w-full text-center py-3 bg-white dark:bg-[#111] border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white rounded font-medium hover:bg-gray-100 dark:hover:bg-[#1a1a1a] transition">Initialize
+                Developer</a>
+        </div>
+
+        <!-- Enterprise Tier (Highlighted) -->
+        <div
+            class="p-8 rounded-2xl bg-gray-900 dark:bg-white text-white dark:text-black border-2 border-brand-light flex flex-col transform md:-translate-y-4 shadow-2xl relative">
+            <div
+                class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-light text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">
+                Recommended</div>
+            <h3 class="text-xl font-bold mb-2">Enterprise</h3>
+            <p class="text-gray-400 dark:text-gray-600 text-sm mb-6">For scaling corporate deployments.</p>
+            <div class="text-4xl font-bold mb-6">$2,499 <span class="text-lg font-normal opacity-70">/license</span>
+            </div>
+            <ul class="text-sm space-y-4 mb-8 flex-grow">
+                <li>&check; Unlimited Agent Deployments</li>
+                <li>&check; Access to Neural API</li>
+                <li>&check; Priority pipeline routing</li>
+                <li>&check; Custom model fine-tuning</li>
+            </ul>
+            <a href="{% url 'checkout' 'enterprise' %}"
+                class="block w-full text-center py-3 bg-brand-light text-white rounded font-bold hover:bg-brand transition shadow-lg">Initialize
+                Enterprise</a>
+        </div>
+
+        <!-- Custom Tier -->
+        <div
+            class="p-8 rounded-2xl bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 flex flex-col hover:border-gray-400 dark:hover:border-gray-600 transition">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Network</h3>
+            <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">Global robotic kinematics.</p>
+            <div class="text-4xl font-bold text-gray-900 dark:text-white mb-6">Custom</div>
+            <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-4 mb-8 flex-grow">
+                <li>&check; Full Swarm Integration</li>
+                <li>&check; Dedicated ROVE Engineer</li>
+                <li>&check; On-premise installation</li>
+            </ul>
+            <a href="{% url 'booking_portal' %}"
+                class="block w-full text-center py-3 bg-white dark:bg-[#111] border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white rounded font-medium hover:bg-gray-100 dark:hover:bg-[#1a1a1a] transition">Contact
+                Sales</a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
