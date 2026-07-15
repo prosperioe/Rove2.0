@@ -26,7 +26,7 @@ load_dotenv()  # Load environment variables from .env file
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG',) == 'True'
+DEBUG = 'True'
 
 ALLOWED_HOSTS = ['*']  # Allow all hosts for development; change in production
 
