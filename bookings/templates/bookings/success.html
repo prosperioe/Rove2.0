@@ -1,15 +1,16 @@
 {% extends 'core/base.html' %}
 {% block content %}
-<div class="min-h-[70vh] flex flex-col items-center justify-center px-4 text-center">
-    <div
-        class="w-20 h-20 bg-brand-light/10 rounded-full flex items-center justify-center mb-6 border border-brand-light/20">
+<div class="min-h-[70vh] flex flex-col items-center justify-center px-4 text-center reveal">
+    <div class="w-20 h-20 bg-brand-light/10 rounded-full flex items-center justify-center mb-6 border border-brand-light/30">
         <svg class="w-10 h-10 text-brand-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
         </svg>
     </div>
-    <h1 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">Transmission Received</h1>
-    <p class="text-xl text-gray-500 dark:text-gray-400 max-w-lg mb-8 font-light">Your initialization sequence is pending
-        review. An operative will contact you at the provided email to confirm scheduling.</p>
-    <a href="{% url 'home' %}" class="text-brand-light hover:underline font-medium">&larr; Return to Central Hub</a>
+    <h1 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">Booking Received</h1>
+    <p class="text-lg text-gray-500 dark:text-gray-400 max-w-lg mb-4 font-light leading-relaxed">
+        Thank you for reaching out. A confirmation has been sent to your email address, and our engineering team will follow up within one business day to confirm a time.
+    </p>
+    <p class="text-sm text-gray-400 dark:text-gray-500 mb-10">Didn't receive the email? Check your spam folder or reply to <a href="mailto:partners@rove.ai" class="text-brand-light hover:underline">partners@rove.ai</a></p>
+    <a href="{% url 'home' %}" class="btn-primary inline-block px-6 py-3 bg-black text-white dark:bg-white dark:text-black rounded-lg font-semibold hover:opacity-90 transition text-sm">← Back to Home</a>
 </div>
 {% endblock %}

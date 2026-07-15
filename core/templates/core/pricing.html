@@ -2,68 +2,75 @@
 {% extends 'core/base.html' %}
 {% block content %}
 <div class="max-w-7xl mx-auto px-4 py-24">
-    <div class="text-center mb-16">
-        <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">Software Licensing</h1>
-        <p class="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto font-light">Purchase your license to
-            download AgentOS. Instant access to the codebase, API keys, and deployment documentation.</p>
+    <div class="text-center mb-20 reveal">
+        <p class="text-xs font-bold text-brand-light tracking-widest uppercase mb-3">Software Licensing</p>
+        <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">Straightforward Pricing</h1>
+        <p class="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto font-light">
+            Purchase a license and get instant access to the AgentOS codebase, API keys, and full deployment documentation. No subscriptions, no hidden fees.
+        </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto items-start">
 
-        <!-- Standard Tier -->
-        <div
-            class="p-8 rounded-2xl bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 flex flex-col hover:border-gray-400 dark:hover:border-gray-600 transition">
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Developer</h3>
-            <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">For individual researchers.</p>
-            <div class="text-4xl font-bold text-gray-900 dark:text-white mb-6">$499 <span
-                    class="text-lg text-gray-500 font-normal">/license</span></div>
-            <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-4 mb-8 flex-grow">
-                <li>&check; 1 AgentOS Deployment</li>
-                <li>&check; Local execution environment</li>
-                <li>&check; Standard documentation</li>
-            </ul>
-            <a href="{% url 'checkout' 'developer' %}"
-                class="block w-full text-center py-3 bg-white dark:bg-[#111] border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white rounded font-medium hover:bg-gray-100 dark:hover:bg-[#1a1a1a] transition">Initialize
-                Developer</a>
-        </div>
-
-        <!-- Enterprise Tier (Highlighted) -->
-        <div
-            class="p-8 rounded-2xl bg-gray-900 dark:bg-white text-white dark:text-black border-2 border-brand-light flex flex-col transform md:-translate-y-4 shadow-2xl relative">
-            <div
-                class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-light text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">
-                Recommended</div>
-            <h3 class="text-xl font-bold mb-2">Enterprise</h3>
-            <p class="text-gray-400 dark:text-gray-600 text-sm mb-6">For scaling corporate deployments.</p>
-            <div class="text-4xl font-bold mb-6">$2,499 <span class="text-lg font-normal opacity-70">/license</span>
+        <!-- Developer Tier -->
+        <div class="card-3d reveal p-8 rounded-2xl bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 flex flex-col hover:border-gray-300 dark:hover:border-gray-700 transition-colors shadow-sm hover:shadow-xl">
+            <div class="mb-6">
+                <span class="inline-block text-xs font-bold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-[#111] px-3 py-1 rounded-full tracking-wide uppercase mb-4">Developer</span>
+                <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">For individual builders and researchers exploring autonomous AI systems.</p>
+                <div class="text-4xl font-bold text-gray-900 dark:text-white">$499 <span class="text-lg text-gray-400 font-normal">/license</span></div>
+                <p class="text-xs text-gray-400 mt-1">One-time payment. Yours forever.</p>
             </div>
-            <ul class="text-sm space-y-4 mb-8 flex-grow">
-                <li>&check; Unlimited Agent Deployments</li>
-                <li>&check; Access to Neural API</li>
-                <li>&check; Priority pipeline routing</li>
-                <li>&check; Custom model fine-tuning</li>
+            <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-3 mb-8 flex-grow">
+                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-light shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> 1 AgentOS Deployment</li>
+                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-light shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Local execution environment</li>
+                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-light shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Full documentation access</li>
+                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-light shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Email support</li>
             </ul>
-            <a href="{% url 'checkout' 'enterprise' %}"
-                class="block w-full text-center py-3 bg-brand-light text-white rounded font-bold hover:bg-brand transition shadow-lg">Initialize
-                Enterprise</a>
+            <a href="{% url 'checkout' 'developer' %}" class="btn-primary block w-full text-center py-3 bg-black dark:bg-white border border-gray-300 dark:border-gray-700 text-white dark:text-black rounded-lg font-semibold hover:opacity-90 transition text-sm">Get Developer License</a>
         </div>
 
-        <!-- Custom Tier -->
-        <div
-            class="p-8 rounded-2xl bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 flex flex-col hover:border-gray-400 dark:hover:border-gray-600 transition">
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Network</h3>
-            <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">Global robotic kinematics.</p>
-            <div class="text-4xl font-bold text-gray-900 dark:text-white mb-6">Custom</div>
-            <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-4 mb-8 flex-grow">
-                <li>&check; Full Swarm Integration</li>
-                <li>&check; Dedicated ROVE Engineer</li>
-                <li>&check; On-premise installation</li>
+        <!-- Enterprise Tier — Featured -->
+        <div class="card-3d reveal reveal-delay-1 p-8 rounded-2xl bg-black text-white dark:bg-white dark:text-black border-2 border-brand-light flex flex-col transform md:-translate-y-6 shadow-2xl relative" style="box-shadow: 0 32px 64px rgba(16,185,129,0.15), 0 8px 24px rgba(0,0,0,0.3);">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-light text-white text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest shadow-lg">Most Popular</div>
+
+            <div class="mb-6">
+                <span class="inline-block text-xs font-bold text-brand-light bg-brand-light/20 px-3 py-1 rounded-full tracking-wide uppercase mb-4">Enterprise</span>
+                <p class="text-gray-300 dark:text-gray-600 text-sm mb-4">For growing companies deploying AI at scale across multiple teams and environments.</p>
+                <div class="text-4xl font-bold">$2,499 <span class="text-lg font-normal opacity-60">/license</span></div>
+                <p class="text-xs opacity-50 mt-1">One-time payment. Unlimited seats.</p>
+            </div>
+            <ul class="text-sm space-y-3 mb-8 flex-grow">
+                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-light shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Unlimited agent deployments</li>
+                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-light shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Full Neural API access</li>
+                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-light shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Priority deployment pipeline</li>
+                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-light shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Custom model fine-tuning</li>
+                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-light shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Dedicated Slack support channel</li>
             </ul>
-            <a href="{% url 'booking_portal' %}"
-                class="block w-full text-center py-3 bg-white dark:bg-[#111] border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white rounded font-medium hover:bg-gray-100 dark:hover:bg-[#1a1a1a] transition">Contact
-                Sales</a>
+            <a href="{% url 'checkout' 'enterprise' %}" class="btn-primary block w-full text-center py-3.5 bg-brand-light text-white rounded-lg font-bold hover:bg-brand-dark transition-colors shadow-lg text-sm">Get Enterprise License</a>
         </div>
 
+        <!-- Network / Custom Tier -->
+        <div class="card-3d reveal reveal-delay-2 p-8 rounded-2xl bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 flex flex-col hover:border-gray-300 dark:hover:border-gray-700 transition-colors shadow-sm hover:shadow-xl">
+            <div class="mb-6">
+                <span class="inline-block text-xs font-bold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-[#111] px-3 py-1 rounded-full tracking-wide uppercase mb-4">Network</span>
+                <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">For large enterprises requiring custom robotics integration and dedicated engineering support.</p>
+                <div class="text-4xl font-bold text-gray-900 dark:text-white">Custom</div>
+                <p class="text-xs text-gray-400 mt-1">Scoped to your requirements.</p>
+            </div>
+            <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-3 mb-8 flex-grow">
+                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-light shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Full swarm robotics integration</li>
+                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-light shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Dedicated ROVE engineer on-site</li>
+                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-light shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> On-premise installation & setup</li>
+                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-light shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> SLA-backed 99.9% uptime guarantee</li>
+            </ul>
+            <a href="{% url 'booking_portal' %}" class="btn-primary block w-full text-center py-3 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white rounded-lg font-semibold hover:bg-gray-50 dark:hover:bg-[#111] transition text-sm">Contact Our Sales Team</a>
+        </div>
+
+    </div>
+
+    <!-- Trust strip -->
+    <div class="mt-20 text-center reveal">
+        <p class="text-sm text-gray-500 dark:text-gray-400">All licenses include a 14-day satisfaction guarantee. Questions? <a href="{% url 'booking_portal' %}" class="text-brand-light hover:underline font-medium">Book a call with our team.</a></p>
     </div>
 </div>
 {% endblock %}

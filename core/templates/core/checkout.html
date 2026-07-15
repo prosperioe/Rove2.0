@@ -1,59 +1,56 @@
 {% extends 'core/base.html' %}
 {% block content %}
 <div class="max-w-3xl mx-auto px-4 py-24">
-    <div
-        class="bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-2xl shadow-xl overflow-hidden p-8 md:p-12">
+    <div class="card-3d reveal bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-2xl shadow-xl overflow-hidden p-8 md:p-12">
 
         <div class="mb-10 border-b border-gray-200 dark:border-gray-800 pb-8 text-center">
-            <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Initialize {{ plan }} License</h1>
-            <p class="text-gray-500 dark:text-gray-400">Complete the transaction to receive your software package and
-                repository keys.</p>
+            <p class="text-xs font-bold text-brand-light tracking-widest uppercase mb-3">Software Purchase</p>
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">{{ plan }} License</h1>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">Complete the form below. Your license key and software download link will be sent to your email address immediately after payment.</p>
         </div>
 
         <form method="POST">
             {% csrf_token %}
 
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Account Details</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <h3 class="text-base font-bold text-gray-900 dark:text-white mb-4">Account Details</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
-                    <input type="text" name="name" required
-                        class="w-full p-3 bg-gray-50 dark:bg-[#111] border border-gray-200 dark:border-gray-800 rounded-lg outline-none focus:border-brand-light transition text-gray-900 dark:text-white">
+                    <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Full Name</label>
+                    <input type="text" name="name" required autocomplete="name"
+                        class="w-full p-3 bg-gray-50 dark:bg-[#111] border border-gray-200 dark:border-gray-800 rounded-lg outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light/20 transition text-gray-900 dark:text-white text-sm">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email Address (For
-                        Delivery)</label>
-                    <input type="email" name="email" required
-                        class="w-full p-3 bg-gray-50 dark:bg-[#111] border border-gray-200 dark:border-gray-800 rounded-lg outline-none focus:border-brand-light transition text-gray-900 dark:text-white">
+                    <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Email Address <span class="text-xs text-gray-400 font-normal">(licence is sent here)</span></label>
+                    <input type="email" name="email" required autocomplete="email"
+                        class="w-full p-3 bg-gray-50 dark:bg-[#111] border border-gray-200 dark:border-gray-800 rounded-lg outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light/20 transition text-gray-900 dark:text-white text-sm">
                 </div>
             </div>
 
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Payment Method (Simulated)</h3>
-            <div class="bg-gray-50 dark:bg-[#111] border border-gray-200 dark:border-gray-800 rounded-lg p-6 mb-8">
+            <h3 class="text-base font-bold text-gray-900 dark:text-white mb-4">Payment Details <span class="text-xs font-normal text-gray-400">(Simulated)</span></h3>
+            <div class="bg-gray-50 dark:bg-[#111] border border-gray-200 dark:border-gray-800 rounded-xl p-6 mb-8">
                 <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Card Number</label>
-                    <input type="text" placeholder="0000 0000 0000 0000"
-                        class="w-full p-3 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-700 rounded-lg outline-none text-gray-900 dark:text-white font-mono">
+                    <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Card Number</label>
+                    <input type="text" placeholder="0000 0000 0000 0000" maxlength="19"
+                        class="w-full p-3 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-700 rounded-lg outline-none text-gray-900 dark:text-white font-mono text-sm focus:border-brand-light transition">
                 </div>
-                <div class="grid grid-cols-2 gap-6">
+                <div class="grid grid-cols-2 gap-5">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Expiry
-                            Date</label>
-                        <input type="text" placeholder="MM/YY"
-                            class="w-full p-3 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-700 rounded-lg outline-none text-gray-900 dark:text-white font-mono">
+                        <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Expiry Date</label>
+                        <input type="text" placeholder="MM / YY" maxlength="5"
+                            class="w-full p-3 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-700 rounded-lg outline-none text-gray-900 dark:text-white font-mono text-sm focus:border-brand-light transition">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">CVC</label>
-                        <input type="text" placeholder="123"
-                            class="w-full p-3 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-700 rounded-lg outline-none text-gray-900 dark:text-white font-mono">
+                        <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Security Code (CVC)</label>
+                        <input type="text" placeholder="123" maxlength="4"
+                            class="w-full p-3 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-700 rounded-lg outline-none text-gray-900 dark:text-white font-mono text-sm focus:border-brand-light transition">
                     </div>
                 </div>
             </div>
 
-            <button type="submit"
-                class="w-full py-4 bg-black text-white dark:bg-white dark:text-black rounded-lg font-bold hover:scale-[1.01] transition-transform duration-200 shadow-lg text-lg">
-                Authorize Transaction
+            <button type="submit" class="btn-primary w-full py-4 bg-black text-white dark:bg-white dark:text-black rounded-xl font-bold hover:opacity-90 transition-opacity shadow-lg text-sm">
+                Complete Purchase & Receive License
             </button>
+            <p class="text-center text-xs text-gray-400 mt-4">This is a simulated transaction. No real payment will be processed.</p>
         </form>
     </div>
 </div>

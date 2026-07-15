@@ -2,75 +2,86 @@
 {% block content %}
 <div class="max-w-7xl mx-auto px-4 py-16">
 
-    <div class="flex items-center gap-6 border-b border-gray-200 dark:border-gray-800 pb-8 mb-12">
-        <div
-            class="w-20 h-20 bg-brand-light/20 rounded-full flex items-center justify-center border border-brand-light text-2xl font-bold text-brand-light uppercase">
+    <!-- Header -->
+    <div class="flex items-center gap-5 border-b border-gray-200 dark:border-gray-800 pb-8 mb-12 reveal">
+        <div class="w-16 h-16 bg-brand-light/10 rounded-full flex items-center justify-center border border-brand-light/30 text-xl font-bold text-brand-light uppercase">
             {{ user.username|make_list|first }}
         </div>
         <div>
-            <div class="text-sm font-mono text-brand-light mb-1">Clearance Level: Tier-1 Admin</div>
-            <h1 class="text-4xl font-bold text-gray-900 dark:text-white">Welcome, {{ user.username }}.</h1>
+            <div class="text-xs font-bold text-brand-light tracking-widest uppercase mb-1">Client Dashboard</div>
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Welcome, {{ user.username }}.</h1>
         </div>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-        <div class="lg:col-span-2 space-y-8">
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Secure Payloads</h2>
+        <!-- Downloads & Resources -->
+        <div class="lg:col-span-2 space-y-6">
+            <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-2 reveal">Your Downloads</h2>
 
-            <div
-                class="bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-brand-light transition">
+            <div class="card-3d reveal bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-brand-light/40 transition-colors hover:shadow-xl">
                 <div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">AgentOS Core Pipeline (v2.4.0)</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">The foundational operating system. Includes
-                        Python dependencies and Docker configs.</p>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">AgentOS Core Pipeline <span class="text-xs text-gray-400 font-normal ml-1">v2.4.0</span></h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">The foundational AI agent system. Includes Python dependencies and Docker configurations.</p>
                 </div>
-                <a href="#"
-                    class="shrink-0 px-6 py-3 bg-white dark:bg-[#111] border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white rounded font-medium hover:bg-gray-100 dark:hover:bg-[#1a1a1a] transition flex items-center gap-2">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                    </svg>
+                <a href="#" class="shrink-0 btn-primary px-5 py-2.5 bg-white dark:bg-[#111] border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white rounded-lg font-medium hover:bg-gray-50 dark:hover:bg-[#1a1a1a] transition-colors flex items-center gap-2 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                     Download .ZIP
                 </a>
             </div>
 
-            <div
-                class="bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-brand-light transition">
+            <div class="card-3d reveal reveal-delay-1 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-brand-light/40 transition-colors hover:shadow-xl">
                 <div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Neural API Keys</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Production-grade cryptographic keys for LLM
-                        access.</p>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">Neural API Keys</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Your production API credentials for accessing the Neural LLM gateway.</p>
                 </div>
-                <button
-                    class="shrink-0 px-6 py-3 bg-brand-light text-white rounded font-medium hover:bg-brand transition flex items-center gap-2">
-                    Reveal Keys &rarr;
+                <button class="shrink-0 btn-primary px-5 py-2.5 bg-brand-light text-white rounded-lg font-medium hover:bg-brand-dark transition-colors flex items-center gap-2 text-sm">
+                    Reveal API Keys →
                 </button>
+            </div>
+
+            <div class="reveal reveal-delay-2 mt-8">
+                <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Quick Links</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <a href="{% url 'pricing' %}" class="card-3d p-5 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-xl hover:border-brand-light/40 transition-colors hover:shadow-lg block">
+                        <div class="text-sm font-bold text-gray-900 dark:text-white mb-1">Upgrade License</div>
+                        <div class="text-xs text-gray-500 dark:text-gray-400">View available plans and unlock more features.</div>
+                    </a>
+                    <a href="{% url 'booking_portal' %}" class="card-3d p-5 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-xl hover:border-brand-light/40 transition-colors hover:shadow-lg block">
+                        <div class="text-sm font-bold text-gray-900 dark:text-white mb-1">Book a Session</div>
+                        <div class="text-xs text-gray-500 dark:text-gray-400">Schedule a technical consultation with our team.</div>
+                    </a>
+                </div>
             </div>
         </div>
 
-        <div class="space-y-8">
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">System Status</h2>
-            <div class="bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-2xl p-6">
+        <!-- System Status -->
+        <div class="space-y-6">
+            <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-2 reveal">Network Status</h2>
+            <div class="card-3d reveal bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 hover:shadow-xl transition-shadow">
                 <div class="flex justify-between items-center mb-4 pb-4 border-b border-gray-200 dark:border-gray-800">
-                    <span class="text-gray-500 dark:text-gray-400">Global Network</span>
-                    <span class="text-brand-light font-bold flex items-center gap-2">
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Global Network</span>
+                    <span class="text-brand-light font-bold text-sm flex items-center gap-2">
                         <div class="w-2 h-2 rounded-full bg-brand-light animate-pulse"></div> Online
                     </span>
                 </div>
                 <div class="flex justify-between items-center mb-4 pb-4 border-b border-gray-200 dark:border-gray-800">
-                    <span class="text-gray-500 dark:text-gray-400">API Latency</span>
-                    <span class="text-white font-mono">14ms</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">API Latency</span>
+                    <span class="text-gray-900 dark:text-white font-mono text-sm">14ms</span>
+                </div>
+                <div class="flex justify-between items-center mb-4 pb-4 border-b border-gray-200 dark:border-gray-800">
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Active Agents</span>
+                    <span class="text-gray-900 dark:text-white font-mono text-sm">1,402</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-500 dark:text-gray-400">Active Agents</span>
-                    <span class="text-white font-mono">1,402</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Uptime (30d)</span>
+                    <span class="text-brand-light font-mono text-sm font-bold">99.97%</span>
                 </div>
             </div>
 
-            <a href="https://github.com/rove-ai/" target="_blank"
-                class="block w-full p-4 border border-gray-200 dark:border-gray-800 rounded-lg text-center text-gray-500 dark:text-gray-400 hover:text-white hover:bg-[#111] transition">
-                Access GitHub Documentation &nearr;
+            <a href="https://github.com/rove-ai/" target="_blank" rel="noopener noreferrer"
+                class="card-3d reveal reveal-delay-1 block w-full p-5 border border-gray-200 dark:border-gray-800 rounded-xl text-center text-sm text-gray-500 dark:text-gray-400 hover:text-brand-light hover:border-brand-light/40 transition-colors bg-white dark:bg-[#0a0a0a] hover:shadow-lg">
+                View Documentation on GitHub ↗
             </a>
         </div>
 

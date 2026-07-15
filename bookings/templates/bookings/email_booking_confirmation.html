@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<body style="margin:0;padding:0;background:#f9fafb;font-family:'Segoe UI',Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f9fafb;padding:40px 16px;">
+<tr><td align="center">
+<table width="100%" style="max-width:580px;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e5e7eb;">
+
+  <!-- Header -->
+  <tr>
+    <td style="background:#0a0a0a;padding:36px 32px;text-align:center;border-bottom:3px solid #10b981;">
+      <span style="color:#ffffff;font-size:26px;font-weight:800;letter-spacing:-1px;">ROVE.</span>
+    </td>
+  </tr>
+
+  <!-- Confirmation Banner -->
+  <tr>
+    <td style="background:#f0fdf4;padding:20px 36px;border-bottom:1px solid #d1fae5;text-align:center;">
+      <span style="font-size:13px;font-weight:700;color:#059669;letter-spacing:0.05em;text-transform:uppercase;">✓ Booking Confirmed</span>
+    </td>
+  </tr>
+
+  <!-- Body -->
+  <tr>
+    <td style="padding:40px 36px 32px;color:#374151;">
+      <h2 style="color:#111827;font-size:22px;margin:0 0 16px;font-weight:700;">We've received your booking, {{ name }}.</h2>
+      <p style="font-size:15px;line-height:1.7;margin:0 0 24px;color:#4b5563;">
+        Thank you for reaching out to ROVE. Our engineering team has been notified of your consultation request and will review your availability within one business day.
+      </p>
+
+      <!-- Summary Box -->
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;margin-bottom:28px;">
+        <tr><td style="padding:20px 24px;">
+          <p style="margin:0 0 12px;font-size:12px;font-weight:700;color:#10b981;text-transform:uppercase;letter-spacing:0.08em;">Booking Summary</p>
+          <table width="100%" cellpadding="4" cellspacing="0" style="font-size:14px;color:#374151;">
+            <tr><td style="color:#9ca3af;width:40%;">Company</td><td style="font-weight:600;">{{ company }}</td></tr>
+            <tr><td style="color:#9ca3af;">Type</td><td style="font-weight:600;">{{ consultation_type }}</td></tr>
+            <tr><td style="color:#9ca3af;">Available</td><td style="font-weight:600;">{{ start_date }} — {{ end_date }}</td></tr>
+            <tr><td style="color:#9ca3af;">Hours</td><td style="font-weight:600;">{{ start_time }} – {{ end_time }}</td></tr>
+          </table>
+        </td></tr>
+      </table>
+
+      <p style="font-size:15px;line-height:1.7;margin:0 0 28px;color:#4b5563;">
+        A member of our team will follow up via email or WhatsApp to confirm a specific time. In the meantime, feel free to explore our product documentation.
+      </p>
+
+      <!-- CTA -->
+      <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:32px;">
+        <tr>
+          <td align="center">
+            <a href="https://rove-ai.onrender.com/products/" style="background:#0a0a0a;color:#ffffff;padding:14px 32px;text-decoration:none;border-radius:8px;font-weight:700;display:inline-block;font-size:15px;">Explore Our Products →</a>
+          </td>
+        </tr>
+      </table>
+
+      <hr style="border:none;border-top:1px solid #e5e7eb;margin:0 0 24px;">
+      <p style="font-size:13px;color:#9ca3af;line-height:1.6;margin:0;">
+        Need to make changes? Reply to this email or contact us at <a href="mailto:partners@rove.ai" style="color:#10b981;text-decoration:none;">partners@rove.ai</a><br>
+        — The ROVE Engineering Team
+      </p>
+    </td>
+  </tr>
+
+  <!-- Footer -->
+  <tr>
+    <td style="background:#f9fafb;padding:20px 36px;text-align:center;border-top:1px solid #e5e7eb;">
+      <p style="font-size:12px;color:#9ca3af;margin:0;">&copy; 2025 ROVE Artificial Intelligence. All rights reserved.</p>
+    </td>
+  </tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>

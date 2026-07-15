@@ -1,55 +1,37 @@
 {% extends 'core/base.html' %}
 {% block content %}
+{% load static %}
+
 <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-24">
 
-    <div class="mb-16 border-b border-gray-200 dark:border-gray-800 pb-12">
-        <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">Product Ecosystem</h1>
-        <p class="text-xl text-gray-500 dark:text-gray-400 max-w-3xl font-light">Deployable intelligence. Explore our 20
-            proprietary systems spanning autonomous agents, robotics kinematics, and enterprise neural networks.</p>
+    <div class="mb-16 border-b border-gray-200 dark:border-gray-800 pb-12 reveal">
+        <p class="text-xs font-bold text-brand-light tracking-widest uppercase mb-3">Product Suite</p>
+        <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">The Full Ecosystem</h1>
+        <p class="text-xl text-gray-500 dark:text-gray-400 max-w-3xl font-light leading-relaxed">
+            Twenty proprietary systems spanning autonomous agents, robotics, neural networks, and enterprise infrastructure — all deployable in your environment today.
+        </p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
         {% for product in ecosystem %}
-        <div
-            class="bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden flex flex-col group hover:border-brand-light transition-colors duration-300">
+        <div class="card-3d reveal bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden flex flex-col group hover:border-brand-light/40 transition-colors duration-300 shadow-sm hover:shadow-xl">
 
-            <div
-                class="aspect-video bg-gray-100 dark:bg-[#111] relative flex items-center justify-center border-b border-gray-200 dark:border-gray-800">
-                <svg class="w-12 h-12 text-gray-300 dark:text-gray-700 group-hover:text-brand-light transition-colors duration-300"
-                    fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                        clip-rule="evenodd"></path>
+            <div class="aspect-video bg-gradient-to-br from-gray-50 to-gray-100 dark:from-[#111] dark:to-[#0a0a0a] relative flex items-center justify-center border-b border-gray-100 dark:border-gray-800">
+                <svg class="w-10 h-10 text-gray-300 dark:text-gray-700 group-hover:text-brand-light transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
                 </svg>
-
-                <span class="absolute bottom-3 right-3 bg-black text-white text-xs px-2 py-1 rounded font-mono">{{
-                    product.time }}</span>
-                <span
-                    class="absolute top-3 left-3 bg-brand-light text-white text-[10px] font-bold uppercase px-2 py-1 rounded">{{
-                    product.category }}</span>
+                <span class="absolute bottom-2 right-2 bg-black/80 text-white text-[10px] px-2 py-0.5 rounded font-mono">{{ product.time }}</span>
+                <span class="absolute top-2 left-2 bg-brand-light text-white text-[10px] font-bold uppercase px-2 py-0.5 rounded tracking-wide">{{ product.category }}</span>
             </div>
 
             <div class="p-6 flex-grow flex flex-col">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{{ product.name }}</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400 mb-8 flex-grow leading-relaxed">{{ product.desc }}
-                </p>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{{ product.name }}</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 flex-grow leading-relaxed">{{ product.desc }}</p>
 
-                <div class="flex flex-col gap-3 mt-auto">
-                    <a href="{% url 'booking_portal' %}"
-                        class="w-full text-center px-4 py-2.5 bg-black text-white dark:bg-white dark:text-black rounded text-sm font-semibold hover:bg-gray-800 dark:hover:bg-gray-200 transition">Get
-                        Software &rarr;</a>
-                    <a href="{% url 'booking_portal' %}"
-                        class="w-full text-center px-4 py-2.5 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white rounded text-sm font-medium hover:bg-gray-50 dark:hover:bg-[#111] transition flex items-center justify-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        Request Live Demo
-                    </a>
+                <div class="flex flex-col gap-2 mt-auto">
+                    <a href="{% url 'pricing' %}" class="btn-primary w-full text-center px-4 py-2.5 bg-black text-white dark:bg-white dark:text-black rounded-lg text-sm font-semibold hover:opacity-90 transition">Get License</a>
+                    <a href="{% url 'booking_portal' %}" class="w-full text-center px-4 py-2.5 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-[#111] transition-colors">Request Demo</a>
                 </div>
             </div>
         </div>

@@ -1,28 +1,61 @@
 {% extends 'core/base.html' %}
 {% block content %}
 <div class="max-w-5xl mx-auto px-4 py-24">
-    <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">Research Index</h1>
-    <p class="text-xl text-gray-500 dark:text-gray-400 font-light mb-16">Our commitment to open science and advancing
-        the frontier of machine intelligence.</p>
+    <div class="reveal mb-16">
+        <p class="text-xs font-bold text-brand-light tracking-widest uppercase mb-3">Published Research</p>
+        <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">Research Index</h1>
+        <p class="text-xl text-gray-500 dark:text-gray-400 font-light leading-relaxed max-w-2xl">
+            Our engineering team publishes findings on autonomous systems, robotics, and machine learning — openly shared to advance the field.
+        </p>
+    </div>
 
-    <div class="space-y-8">
-        <div class="group border-b border-gray-200 dark:border-gray-800 pb-8 cursor-pointer">
-            <div class="text-sm text-brand-light font-medium mb-2">Published: May 2026</div>
-            <h3
-                class="text-2xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-brand-light transition">
-                Swarm Intelligence in High-Density Warehouse Environments</h3>
-            <p class="text-gray-500 dark:text-gray-400">A technical breakdown of routing algorithms reducing collision
-                probabilities by 84% in multi-agent robot deployments.</p>
+    <div class="space-y-0 border-t border-gray-200 dark:border-gray-800">
+
+        <div class="card-3d reveal group border-b border-gray-200 dark:border-gray-800 py-8 px-4 -mx-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-[#0f0f0f] transition-colors rounded-xl">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex-1">
+                    <div class="text-xs text-brand-light font-bold mb-2 tracking-wide uppercase">Published: May 2026 · Robotics</div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-brand-light transition-colors">
+                        Swarm Intelligence in High-Density Warehouse Environments
+                    </h3>
+                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed">
+                        A technical breakdown of routing algorithms that reduced robot collision probabilities by 84% across multi-agent deployments in live logistics facilities.
+                    </p>
+                </div>
+                <span class="text-gray-400 group-hover:text-brand-light transition-colors text-sm font-medium shrink-0">Read Paper →</span>
+            </div>
         </div>
 
-        <div class="group border-b border-gray-200 dark:border-gray-800 pb-8 cursor-pointer">
-            <div class="text-sm text-brand-light font-medium mb-2">Published: April 2026</div>
-            <h3
-                class="text-2xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-brand-light transition">
-                Self-Evolving Neural Architectures for Edge Devices</h3>
-            <p class="text-gray-500 dark:text-gray-400">Proposing a new method for allowing LLMs to adjust their own
-                parameter weights dynamically based on real-time environmental input.</p>
+        <div class="card-3d reveal reveal-delay-1 group border-b border-gray-200 dark:border-gray-800 py-8 px-4 -mx-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-[#0f0f0f] transition-colors rounded-xl">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex-1">
+                    <div class="text-xs text-brand-light font-bold mb-2 tracking-wide uppercase">Published: April 2026 · Neural Networks</div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-brand-light transition-colors">
+                        Self-Evolving Neural Architectures for Edge Devices
+                    </h3>
+                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed">
+                        A new method enabling large language models to dynamically adjust their own parameter weights based on real-time environmental feedback — without retraining.
+                    </p>
+                </div>
+                <span class="text-gray-400 group-hover:text-brand-light transition-colors text-sm font-medium shrink-0">Read Paper →</span>
+            </div>
         </div>
+
+        <div class="card-3d reveal reveal-delay-2 group border-b border-gray-200 dark:border-gray-800 py-8 px-4 -mx-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-[#0f0f0f] transition-colors rounded-xl">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex-1">
+                    <div class="text-xs text-brand-light font-bold mb-2 tracking-wide uppercase">Published: February 2026 · AI Agents</div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-brand-light transition-colors">
+                        Multi-Agent Orchestration at Enterprise Scale
+                    </h3>
+                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed">
+                        How coordinating networks of specialised AI agents — each handling a distinct domain — outperforms single-model approaches on complex, multi-step business tasks.
+                    </p>
+                </div>
+                <span class="text-gray-400 group-hover:text-brand-light transition-colors text-sm font-medium shrink-0">Read Paper →</span>
+            </div>
+        </div>
+
     </div>
 </div>
 {% endblock %}
