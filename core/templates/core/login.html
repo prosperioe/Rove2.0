@@ -1,4 +1,38 @@
 {% extends 'core/base.html' %}
+
+{% block skeleton %}
+<!-- Login: centered card skeleton -->
+<style>
+    .sk-login-wrap { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 16px; }
+    .sk-login-card { width: 100%; max-width: 440px; border: 1px solid #e5e7eb; border-radius: 20px; padding: 40px; display: flex; flex-direction: column; gap: 22px; }
+    html.dark .sk-login-card { border-color: #1a1a1a; }
+</style>
+<div class="sk-login-wrap">
+    <div class="sk-login-card">
+        <!-- logo + heading -->
+        <div class="flex flex-col items-center gap-3">
+            <div class="sk-bar w-16 h-6 rounded-md"></div>
+            <div class="sk-bar w-40 h-7 mt-1"></div>
+            <div class="sk-bar w-64 h-4"></div>
+        </div>
+        <!-- username field -->
+        <div class="flex flex-col gap-2">
+            <div class="sk-bar w-20 h-4 rounded"></div>
+            <div class="sk-bar w-full h-11 rounded-lg"></div>
+        </div>
+        <!-- password field -->
+        <div class="flex flex-col gap-2">
+            <div class="sk-bar w-20 h-4 rounded"></div>
+            <div class="sk-bar w-full h-11 rounded-lg"></div>
+        </div>
+        <!-- submit -->
+        <div class="sk-bar w-full h-12 rounded-lg mt-1"></div>
+        <!-- footer link -->
+        <div class="sk-bar w-48 h-4 mx-auto rounded"></div>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
 <div class="min-h-[80vh] flex items-center justify-center px-4 py-12">
     <div class="card-3d w-full max-w-md bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-800 rounded-2xl shadow-xl p-8 md:p-10 reveal">

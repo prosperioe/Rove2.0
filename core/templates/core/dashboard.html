@@ -1,4 +1,82 @@
 {% extends 'core/base.html' %}
+
+{% block skeleton %}
+<!-- Dashboard: header + 2-col layout (content + sidebar) -->
+<style>
+    .sk-dash-body { padding: 32px 32px 24px; max-width: 1280px; margin: 0 auto; width: 100%; display: flex; flex-direction: column; gap: 28px; }
+    .sk-dash-header { display: flex; align-items: center; gap: 20px; padding-bottom: 24px; border-bottom: 1px solid #e5e7eb; }
+    html.dark .sk-dash-header { border-bottom-color: #1a1a1a; }
+    .sk-dash-cols { display: grid; grid-template-columns: 1fr 340px; gap: 28px; }
+    @media(max-width: 1024px) { .sk-dash-cols { grid-template-columns: 1fr; } }
+    .sk-dash-card { border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    html.dark .sk-dash-card { border-color: #1a1a1a; }
+    .sk-dash-status { border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 20px; }
+    html.dark .sk-dash-status { border-color: #1a1a1a; }
+    .sk-dash-row { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid #f3f4f6; }
+    html.dark .sk-dash-row { border-bottom-color: #161616; }
+</style>
+<div class="sk-dash-body">
+    <!-- Avatar + welcome header -->
+    <div class="sk-dash-header">
+        <div class="sk-bar w-16 h-16 rounded-full flex-shrink-0"></div>
+        <div class="flex flex-col gap-3 flex-1">
+            <div class="sk-bar w-24 h-3"></div>
+            <div class="sk-bar w-56 h-7"></div>
+        </div>
+    </div>
+    <!-- 2-col grid -->
+    <div class="sk-dash-cols">
+        <!-- Left: download cards + quick links -->
+        <div class="flex flex-col gap-5">
+            <div class="sk-bar w-32 h-5 mb-1"></div>
+            <div class="sk-dash-card">
+                <div class="flex flex-col gap-3 flex-1">
+                    <div class="sk-bar w-48 h-5"></div>
+                    <div class="sk-bar w-72 h-3"></div>
+                </div>
+                <div class="sk-bar w-28 h-10 rounded-lg flex-shrink-0"></div>
+            </div>
+            <div class="sk-dash-card">
+                <div class="flex flex-col gap-3 flex-1">
+                    <div class="sk-bar w-36 h-5"></div>
+                    <div class="sk-bar w-64 h-3"></div>
+                </div>
+                <div class="sk-bar w-28 h-10 rounded-lg flex-shrink-0"></div>
+            </div>
+            <!-- Quick links 2-col -->
+            <div class="sk-bar w-28 h-5 mt-2"></div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="sk-bar h-20 rounded-xl"></div>
+                <div class="sk-bar h-20 rounded-xl"></div>
+            </div>
+        </div>
+        <!-- Right: status panel -->
+        <div class="flex flex-col gap-4">
+            <div class="sk-bar w-32 h-5 mb-1"></div>
+            <div class="sk-dash-status">
+                <div class="sk-dash-row">
+                    <div class="sk-bar w-28 h-4"></div>
+                    <div class="sk-bar w-16 h-4"></div>
+                </div>
+                <div class="sk-dash-row">
+                    <div class="sk-bar w-24 h-4"></div>
+                    <div class="sk-bar w-12 h-4"></div>
+                </div>
+                <div class="sk-dash-row">
+                    <div class="sk-bar w-28 h-4"></div>
+                    <div class="sk-bar w-16 h-4"></div>
+                </div>
+                <div class="flex justify-between">
+                    <div class="sk-bar w-24 h-4"></div>
+                    <div class="sk-bar w-14 h-4"></div>
+                </div>
+            </div>
+            <div class="sk-bar h-12 rounded-xl"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
 <div class="max-w-7xl mx-auto px-4 py-16">
 

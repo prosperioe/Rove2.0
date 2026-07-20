@@ -1,4 +1,69 @@
 {% extends 'core/base.html' %}
+
+{% block skeleton %}
+<!-- Portal: centered heading + form card skeleton -->
+<style>
+    .sk-portal-body { max-width: 900px; margin: 0 auto; padding: 60px 24px 40px; display: flex; flex-direction: column; gap: 24px; }
+    .sk-portal-card { border: 1px solid #e5e7eb; border-radius: 20px; padding: 40px; display: flex; flex-direction: column; gap: 24px; }
+    html.dark .sk-portal-card { border-color: #1a1a1a; }
+    .sk-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media(max-width:640px){ .sk-2col{ grid-template-columns: 1fr; } }
+    .sk-field { display: flex; flex-direction: column; gap: 8px; }
+</style>
+<div class="sk-portal-body">
+    <!-- page heading -->
+    <div class="flex flex-col items-center gap-3">
+        <div class="sk-bar w-24 h-3 rounded-full"></div>
+        <div class="sk-bar w-72 h-10"></div>
+        <div class="sk-bar w-full max-w-md h-4"></div>
+        <div class="sk-bar w-full max-w-sm h-4"></div>
+    </div>
+    <!-- form card -->
+    <div class="sk-portal-card">
+        <!-- consultation type -->
+        <div class="sk-field">
+            <div class="sk-bar w-40 h-4"></div>
+            <div class="sk-bar w-full h-11 rounded-lg"></div>
+        </div>
+        <!-- name + company -->
+        <div class="sk-2col">
+            <div class="sk-field">
+                <div class="sk-bar w-24 h-4"></div>
+                <div class="sk-bar w-full h-11 rounded-lg"></div>
+            </div>
+            <div class="sk-field">
+                <div class="sk-bar w-32 h-4"></div>
+                <div class="sk-bar w-full h-11 rounded-lg"></div>
+            </div>
+        </div>
+        <!-- email + phone -->
+        <div class="sk-2col">
+            <div class="sk-field">
+                <div class="sk-bar w-28 h-4"></div>
+                <div class="sk-bar w-full h-11 rounded-lg"></div>
+            </div>
+            <div class="sk-field">
+                <div class="sk-bar w-36 h-4"></div>
+                <div class="sk-bar w-full h-11 rounded-lg"></div>
+            </div>
+        </div>
+        <!-- availability panels -->
+        <div class="sk-2col">
+            <div class="sk-bar h-28 rounded-xl"></div>
+            <div class="sk-bar h-28 rounded-xl"></div>
+        </div>
+        <!-- project description textarea -->
+        <div class="sk-field">
+            <div class="sk-bar w-52 h-4"></div>
+            <div class="sk-bar w-full h-28 rounded-lg"></div>
+        </div>
+        <!-- submit -->
+        <div class="sk-bar w-full h-14 rounded-xl"></div>
+        <div class="sk-bar w-80 h-3 mx-auto rounded"></div>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
 
 <div class="max-w-4xl mx-auto px-4 py-24">

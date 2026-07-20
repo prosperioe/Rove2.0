@@ -32,7 +32,7 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            transition: opacity 0.4s ease, visibility 0.4s ease;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
         }
         html.dark #page-skeleton { background: #0a0a0a; }
 
@@ -46,10 +46,10 @@
             border-radius: 6px;
             background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
             background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
+            animation: shimmer 1.8s ease-in-out infinite;
         }
         html.dark .sk-bar {
-            background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+            background: linear-gradient(90deg, #161616 25%, #222 50%, #161616 75%);
             background-size: 200% 100%;
         }
 
@@ -58,39 +58,62 @@
             100% { background-position: -200% 0; }
         }
 
+        /* shared skeleton layout helpers */
         .sk-nav { height: 64px; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; padding: 0 32px; gap: 24px; flex-shrink: 0; }
-        html.dark .sk-nav { border-bottom-color: #1f2937; }
-        .sk-hero { padding: 80px 32px 60px; display: flex; flex-direction: column; align-items: center; gap: 16px; flex-shrink: 0; }
-        .sk-grid { padding: 0 32px 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; flex-shrink: 0; }
-        @media (max-width: 768px) { .sk-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 480px) { .sk-grid { grid-template-columns: 1fr; } }
-        .sk-card { border-radius: 16px; overflow: hidden; border: 1px solid #e5e7eb; }
-        html.dark .sk-card { border-color: #1f2937; }
+        html.dark .sk-nav { border-bottom-color: #1a1a1a; }
+        .sk-body { padding: 32px; flex: 1; display: flex; flex-direction: column; gap: 20px; }
 
-        /* ─── 3D CARD SYSTEM ──────────────────────────────────── */
-        .card-3d {
+        /* ─── SPATIAL UI (landing page only) ─────────────────── */
+        .spatial-hero {
+            perspective: 1200px;
+            perspective-origin: 50% 40%;
+        }
+        .spatial-layer {
             transform-style: preserve-3d;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             will-change: transform;
+            transition: transform 0.08s linear;
+        }
+        .spatial-float {
+            animation: float-idle 6s ease-in-out infinite;
+        }
+        @keyframes float-idle {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .spatial-glow {
+            animation: glow-pulse 4s ease-in-out infinite;
+        }
+        @keyframes glow-pulse {
+            0%, 100% { opacity: 0.06; transform: scale(1); }
+            50% { opacity: 0.12; transform: scale(1.08); }
+        }
+
+        /* ─── CARD HOVER LIFT (subtle, no tilt) ─────────────── */
+        .card-3d {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
         .card-3d:hover {
-            box-shadow: 0 24px 48px rgba(0,0,0,0.15), 0 8px 16px rgba(0,0,0,0.08);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06);
+        }
+        html.dark .card-3d:hover {
+            box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.2);
         }
 
         /* ─── SMOOTH PAGE ENTRY ───────────────────────────────── */
         .reveal {
             opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+            transform: translateY(16px);
+            transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1);
         }
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-1 { transition-delay: 0.07s; }
+        .reveal-delay-2 { transition-delay: 0.14s; }
+        .reveal-delay-3 { transition-delay: 0.21s; }
+        .reveal-delay-4 { transition-delay: 0.28s; }
 
         /* ─── GRADIENT BORDER FOR FEATURED CARD ──────────────── */
         .gradient-border {
@@ -138,38 +161,28 @@
          SKELETON LOADING SCREEN
     ════════════════════════════════════════ -->
     <div id="page-skeleton">
+        <!-- Shared nav skeleton -->
         <div class="sk-nav">
             <div class="sk-bar w-16 h-5"></div>
             <div class="flex-1"></div>
-            <div class="sk-bar w-24 h-4 hidden md:block"></div>
             <div class="sk-bar w-20 h-4 hidden md:block"></div>
             <div class="sk-bar w-20 h-4 hidden md:block"></div>
-            <div class="sk-bar w-28 h-4 hidden md:block"></div>
+            <div class="sk-bar w-20 h-4 hidden md:block"></div>
             <div class="sk-bar w-24 h-8 rounded-md hidden md:block"></div>
         </div>
-        <div class="sk-hero">
-            <div class="sk-bar w-24 h-4 rounded-full"></div>
-            <div class="sk-bar w-full max-w-2xl h-10 mt-2"></div>
-            <div class="sk-bar w-full max-w-xl h-10"></div>
-            <div class="sk-bar w-full max-w-md h-6 mt-2"></div>
-            <div class="flex gap-4 mt-4">
-                <div class="sk-bar w-36 h-11 rounded-md"></div>
-                <div class="sk-bar w-36 h-11 rounded-md"></div>
+        <!-- Per-page skeleton body (overridable per template) -->
+        {% block skeleton %}
+        <!-- default: simple centered content skeleton -->
+        <div class="sk-body max-w-3xl mx-auto w-full">
+            <div class="sk-bar w-32 h-4 rounded-full mx-auto"></div>
+            <div class="sk-bar w-full max-w-xl h-10 mx-auto"></div>
+            <div class="sk-bar w-full max-w-md h-6 mx-auto"></div>
+            <div class="flex gap-4 justify-center mt-2">
+                <div class="sk-bar w-36 h-11 rounded-lg"></div>
+                <div class="sk-bar w-32 h-11 rounded-lg"></div>
             </div>
         </div>
-        <div class="sk-grid">
-            {% for i in "1234" %}
-            <div class="sk-card">
-                <div class="sk-bar w-full h-36"></div>
-                <div class="p-5 flex flex-col gap-3">
-                    <div class="sk-bar w-1/2 h-4"></div>
-                    <div class="sk-bar w-full h-3"></div>
-                    <div class="sk-bar w-4/5 h-3"></div>
-                    <div class="sk-bar w-full h-9 rounded-md mt-2"></div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+        {% endblock %}
     </div>
 
     <!-- ════════════════════════════════════════
@@ -387,21 +400,25 @@
             }, 300);
         });
 
-        // ── 3D Card Tilt Effect ───────────────────────────────
-        function initTiltCards() {
-            document.querySelectorAll('.card-3d').forEach(card => {
-                card.addEventListener('mousemove', function(e) {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const rotateX = ((y - centerY) / centerY) * -8;
-                    const rotateY = ((x - centerX) / centerX) * 8;
-                    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02,1.02,1.02)`;
+        // ── Spatial UI parallax (landing page only) ──────────
+        function initSpatial() {
+            const hero = document.querySelector('.spatial-hero');
+            if (!hero) return;
+            const layers = hero.querySelectorAll('.spatial-layer');
+            hero.addEventListener('mousemove', function(e) {
+                const rect = hero.getBoundingClientRect();
+                const cx = rect.left + rect.width / 2;
+                const cy = rect.top + rect.height / 2;
+                const dx = (e.clientX - cx) / (rect.width / 2);
+                const dy = (e.clientY - cy) / (rect.height / 2);
+                layers.forEach(function(layer) {
+                    const depth = parseFloat(layer.dataset.depth || '0');
+                    layer.style.transform = `translate(${dx * depth * 14}px, ${dy * depth * 10}px)`;
                 });
-                card.addEventListener('mouseleave', function() {
-                    card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+            });
+            hero.addEventListener('mouseleave', function() {
+                layers.forEach(function(layer) {
+                    layer.style.transform = 'translate(0,0)';
                 });
             });
         }
@@ -421,7 +438,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            initTiltCards();
+            initSpatial();
             initReveal();
         });
     </script>

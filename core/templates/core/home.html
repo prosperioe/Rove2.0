@@ -1,29 +1,72 @@
 {% extends 'core/base.html' %}
+
+{% block skeleton %}
+<!-- Home: hero + 4-col product grid -->
+<style>
+    .sk-home-hero { padding: 80px 32px 48px; display: flex; flex-direction: column; align-items: center; gap: 14px; flex-shrink: 0; }
+    .sk-home-grid { padding: 0 32px 32px; display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+    .sk-home-card { border-radius: 20px; overflow: hidden; border: 1px solid #e5e7eb; background: #fff; }
+    html.dark .sk-home-card { border-color: #1a1a1a; background: #0f0f0f; }
+    @media(max-width:768px){ .sk-home-grid{ grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:480px){ .sk-home-grid{ grid-template-columns: 1fr; } }
+</style>
+<div class="sk-home-hero">
+    <div class="sk-bar w-28 h-4 rounded-full"></div>
+    <div class="sk-bar w-full max-w-2xl h-12 mt-1"></div>
+    <div class="sk-bar w-full max-w-xl h-12"></div>
+    <div class="sk-bar w-full max-w-md h-5 mt-1"></div>
+    <div class="flex gap-4 mt-5">
+        <div class="sk-bar w-40 h-12 rounded-lg"></div>
+        <div class="sk-bar w-36 h-12 rounded-lg"></div>
+    </div>
+    <!-- stat row -->
+    <div class="flex gap-10 mt-10">
+        <div class="sk-bar w-16 h-8"></div>
+        <div class="sk-bar w-16 h-8"></div>
+        <div class="sk-bar w-16 h-8"></div>
+        <div class="sk-bar w-16 h-8"></div>
+    </div>
+</div>
+<div class="sk-home-grid">
+    {% for i in "1234" %}
+    <div class="sk-home-card">
+        <div class="p-7 flex flex-col gap-4">
+            <div class="sk-bar w-10 h-10 rounded-xl"></div>
+            <div class="sk-bar w-1/2 h-5"></div>
+            <div class="sk-bar w-full h-3"></div>
+            <div class="sk-bar w-4/5 h-3"></div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
 {% block content %}
 
 <!-- ════════════════════════════════════════
      HERO SECTION
 ════════════════════════════════════════ -->
-<div class="relative overflow-hidden flex flex-col items-center justify-center min-h-[92vh] text-center px-4">
-    <!-- Ambient glow -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-brand-light/8 dark:bg-brand-light/5 blur-[140px] rounded-full pointer-events-none"></div>
+<div class="spatial-hero relative overflow-hidden flex flex-col items-center justify-center min-h-[92vh] text-center px-4">
+    <!-- Spatial ambient glows at different depths -->
+    <div class="spatial-layer absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-light/6 dark:bg-brand-light/4 blur-[160px] rounded-full pointer-events-none spatial-glow" data-depth="0.4"></div>
+    <div class="spatial-layer absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-brand-light/3 dark:bg-brand-light/2 blur-[100px] rounded-full pointer-events-none" data-depth="0.2" style="opacity:0.4"></div>
 
-    <div class="relative z-10 max-w-5xl mx-auto mt-8">
-        <div class="inline-flex items-center gap-2 bg-gray-100 dark:bg-[#111] border border-gray-200 dark:border-gray-800 rounded-full px-4 py-1.5 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-8 tracking-wide">
+    <div class="spatial-layer relative z-10 max-w-5xl mx-auto mt-8" data-depth="1">
+        <div class="inline-flex items-center gap-2 bg-gray-100 dark:bg-[#111] border border-gray-200 dark:border-gray-800 rounded-full px-4 py-1.5 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-8 tracking-wide reveal">
             <div class="w-1.5 h-1.5 bg-brand-light rounded-full animate-pulse"></div>
             Now live — AgentOS v2.4 · Deployed globally
         </div>
 
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05] text-gray-900 dark:text-white">
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05] text-gray-900 dark:text-white reveal">
             Intelligent Systems<br class="hidden md:block">
             Built for the <span class="text-brand-light">Future</span>
         </h1>
 
-        <p class="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+        <p class="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-10 font-light leading-relaxed reveal reveal-delay-1">
             ROVE designs autonomous AI agents, neural networks, and robotics systems that replace manual processes and scale your operations — without adding headcount.
         </p>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal reveal-delay-2">
             <a href="{% url 'booking_portal' %}" class="btn-primary w-full sm:w-auto px-8 py-3.5 rounded-lg bg-black text-white dark:bg-white dark:text-black font-semibold hover:shadow-xl transition text-sm">
                 Book a Free Consultation
             </a>
@@ -32,23 +75,23 @@
             </a>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-8 mt-16 text-center">
-            <div class="reveal">
+        <div class="flex flex-wrap justify-center gap-8 mt-16 text-center reveal reveal-delay-3">
+            <div>
                 <div class="text-3xl font-bold text-gray-900 dark:text-white">20+</div>
                 <div class="text-xs text-gray-500 dark:text-gray-400 mt-1 tracking-wide uppercase">AI Products</div>
             </div>
             <div class="w-px bg-gray-200 dark:bg-gray-800 hidden sm:block"></div>
-            <div class="reveal reveal-delay-1">
+            <div>
                 <div class="text-3xl font-bold text-gray-900 dark:text-white">1,400+</div>
                 <div class="text-xs text-gray-500 dark:text-gray-400 mt-1 tracking-wide uppercase">Active Deployments</div>
             </div>
             <div class="w-px bg-gray-200 dark:bg-gray-800 hidden sm:block"></div>
-            <div class="reveal reveal-delay-2">
+            <div>
                 <div class="text-3xl font-bold text-gray-900 dark:text-white">60%</div>
                 <div class="text-xs text-gray-500 dark:text-gray-400 mt-1 tracking-wide uppercase">Avg. Cost Reduction</div>
             </div>
             <div class="w-px bg-gray-200 dark:bg-gray-800 hidden sm:block"></div>
-            <div class="reveal reveal-delay-3">
+            <div>
                 <div class="text-3xl font-bold text-gray-900 dark:text-white">99.9%</div>
                 <div class="text-xs text-gray-500 dark:text-gray-400 mt-1 tracking-wide uppercase">Uptime SLA</div>
             </div>
