@@ -1,3 +1,5 @@
+import logging
+
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -5,6 +7,8 @@ from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from .forms import ConsultationForm, InquiryForm
+
+logger = logging.getLogger(__name__)
 
 
 def booking_portal(request):
@@ -35,7 +39,7 @@ def booking_portal(request):
                 try:
                     send_mail(manager_subject, manager_message, settings.EMAIL_HOST_USER, [MANAGER_EMAIL], fail_silently=False)
                 except Exception as e:
-                    print(f"Manager inquiry email failed: {e}")
+                    logger.error("Manager inquiry alert email failed: %s", e, exc_info=True)
 
                 # ── 2. Send Feedback Confirmation to Client ────────────────────
                 if inquiry.email:
@@ -59,7 +63,7 @@ def booking_portal(request):
                             fail_silently=False
                         )
                     except Exception as e:
-                        print(f"Client inquiry feedback email failed: {e}")
+                        logger.error("Client inquiry confirmation email failed: %s", e, exc_info=True)
 
                 messages.success(request, 'Your response has been recorded. Our team will review your inquiry and reach out shortly.')
                 return redirect('booking_success')
@@ -87,7 +91,7 @@ def booking_portal(request):
                 try:
                     send_mail(manager_subject, manager_message, settings.EMAIL_HOST_USER, [MANAGER_EMAIL], fail_silently=False)
                 except Exception as e:
-                    print(f"Manager alert email failed: {e}")
+                    logger.error("Manager consultation alert email failed: %s", e, exc_info=True)
 
                 # ── 2. Send confirmation email to the client ───────────────
                 if booking.email:
@@ -112,7 +116,7 @@ def booking_portal(request):
                             fail_silently=False
                         )
                     except Exception as e:
-                        print(f"Client confirmation email failed: {e}")
+                        logger.error("Client consultation confirmation email failed: %s", e, exc_info=True)
 
                 messages.success(request, 'Your booking request has been received. Our team will be in touch within one business day.')
                 return redirect('booking_success')
