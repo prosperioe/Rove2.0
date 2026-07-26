@@ -131,10 +131,22 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# SMTP Email Configuration
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+# ─── EMAIL CONFIGURATION ──────────────────────────────────────────────────────
+# TEMPORARY DEBUG BACKEND: Prints emails to the terminal (Render logs) instead
+# of contacting Google. This bypasses the Gunicorn worker timeout caused by
+# Render's cloud IP being throttled/blocked by Gmail's SMTP on port 587.
+# To restore live sending: swap these two blocks back and re-deploy.
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# ── SMTP (disabled during debug) ──────────────────────────────────────────────
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+# Kept active so views.py can still reference settings.EMAIL_HOST_USER as the
+# manager recipient address without crashing (console backend ignores it).
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
