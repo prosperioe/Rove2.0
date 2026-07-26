@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import Consultation
+from .models import Consultation, Inquiry
 
 @admin.register(Consultation)
 class ConsultationAdmin(admin.ModelAdmin):
@@ -29,3 +29,18 @@ class ConsultationAdmin(admin.ModelAdmin):
             clean_phone, obj.email
         )
     contact_actions.short_description = 'Outreach'
+
+
+@admin.register(Inquiry)
+class InquiryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'inquiry_type', 'status', 'created_at', 'quick_email')
+    list_filter = ('inquiry_type', 'status', 'created_at')
+    search_fields = ('name', 'email', 'message')
+    readonly_fields = ('created_at',)
+
+    def quick_email(self, obj):
+        return format_html(
+            '<a class="button" style="background-color:#007BFF; color:white; font-weight:bold;" href="mailto:{}">Reply via Email</a>',
+            obj.email
+        )
+    quick_email.short_description = 'Actions'

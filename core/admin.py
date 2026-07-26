@@ -1,6 +1,9 @@
 # core/admin.py
 from django.contrib import admin
 from .models import SoftwareLicense
+from .models import SaaSProject
+
+admin.site.register(SaaSProject)
 
 @admin.register(SoftwareLicense)
 class SoftwareLicenseAdmin(admin.ModelAdmin):

@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import SoftwareLicense, UserProfile
+from .models import SoftwareLicense, UserProfile, SaaSProject
 
 
 def home(request):
@@ -15,37 +15,8 @@ def home(request):
 
 
 def products(request):
-    ecosystem = [
-        # Autonomous Agents
-        {"name": "AgentOS Core", "category": "Agents", "desc": "The foundational operating system for autonomous digital workers — built to run 24/7 without supervision.", "time": "2:15"},
-        {"name": "SalesMind", "category": "Agents", "desc": "An outbound sales agent that handles cold outreach, follow-ups, and meeting scheduling automatically.", "time": "1:45"},
-        {"name": "SupportNode", "category": "Agents", "desc": "L1/L2 technical support automation with deep documentation context and escalation logic.", "time": "3:10"},
-        {"name": "ResearchCrawler", "category": "Agents", "desc": "Automated data harvesting and synthesis from unstructured web sources — hours of research in seconds.", "time": "2:30"},
-        {"name": "CodeWhisper", "category": "Agents", "desc": "An autonomous code reviewer and refactoring agent that keeps your codebase clean and efficient.", "time": "4:00"},
-
-        # Robotics
-        {"name": "RoboCore", "category": "Robotics", "desc": "A unified kinematics engine for coordinating industrial swarms of robots across large facilities.", "time": "5:20"},
-        {"name": "WarehouseSwarm", "category": "Robotics", "desc": "Intelligent logistics routing that reduces floor collision incidents by up to 84%.", "time": "3:15"},
-        {"name": "DroneOps", "category": "Robotics", "desc": "Aerial surveillance and real-time inventory scanning API for warehouse environments.", "time": "2:50"},
-        {"name": "MedAssist Bot", "category": "Robotics", "desc": "Precision handling software designed specifically for clinical and surgical environments.", "time": "4:15"},
-        {"name": "AutoAssembly", "category": "Robotics", "desc": "High-torque manufacturing arm control protocols for automated production lines.", "time": "6:00"},
-
-        # Neural Networks
-        {"name": "VisionNet", "category": "Neural Networks", "desc": "Real-time optical character recognition and object detection — accurate at any scale.", "time": "1:30"},
-        {"name": "NLP Cortex", "category": "Neural Networks", "desc": "Enterprise-grade natural language processing model for document analysis and conversation.", "time": "2:45"},
-        {"name": "PredictEngine", "category": "Neural Networks", "desc": "Supply chain and financial forecasting architecture trained on your proprietary data.", "time": "3:20"},
-        {"name": "AudioSense", "category": "Neural Networks", "desc": "Lossless speech-to-text transcription with acoustic anomaly detection built in.", "time": "1:55"},
-        {"name": "FraudShield", "category": "Neural Networks", "desc": "Pattern recognition network for real-time transaction monitoring and fraud detection.", "time": "2:10"},
-
-        # Enterprise Infrastructure
-        {"name": "DataVault", "category": "Infrastructure", "desc": "Quantum-resistant encrypted storage architecture for sensitive enterprise data.", "time": "3:40"},
-        {"name": "CloudEdge", "category": "Infrastructure", "desc": "Distributed computing framework purpose-built for low-latency AI inference at the edge.", "time": "2:25"},
-        {"name": "SecOps AI", "category": "Infrastructure", "desc": "Automated threat hunting and intelligent firewall management — security that never sleeps.", "time": "4:30"},
-        {"name": "SyncMatrix", "category": "Infrastructure", "desc": "Multi-database synchronisation and automated backup protocols across hybrid environments.", "time": "1:50"},
-        {"name": "Analytics Pro", "category": "Infrastructure", "desc": "High-density data visualisation and real-time reporting engine for executive decision-making.", "time": "3:05"},
-    ]
-
-    return render(request, 'core/products.html', {'ecosystem': ecosystem})
+    projects = SaaSProject.objects.all().order_by('-created_at')
+    return render(request, 'core/products.html', {'projects': projects})
 
 
 def research(request):

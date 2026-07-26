@@ -48,3 +48,14 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return f"{self.user.username} Profile"
+
+class SaaSProject(models.Model):
+    title = models.CharField(max_length=200)
+    concept_note = models.TextField(help_text="Detailed description and architecture.")
+    preview_url = models.URLField(help_text="External URL for the image/video preview (e.g., Imgur/GitHub link)")
+    live_link = models.URLField(blank=True, null=True)
+    github_link = models.URLField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title

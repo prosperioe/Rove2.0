@@ -32,3 +32,26 @@ class Consultation(models.Model):
 
     def __str__(self):
         return f"{self.company_name} - {self.consultation_type}"
+
+
+class Inquiry(models.Model):
+    INQUIRY_TYPES = [
+        ("Collaborate on a project", "Collaborate on a project"),
+        ("Invest in my software", "Invest in my software"),
+        ("Buy a software license", "Buy a software license"),
+        ("Ask for technical help", "Ask for technical help"),
+        ("Hire me for contract work", "Hire me for contract work"),
+    ]
+
+    name = models.CharField(max_length=150)
+    email = models.EmailField()
+    inquiry_type = models.CharField(max_length=100, choices=INQUIRY_TYPES)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=20, default='Pending')
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"{self.name} - {self.inquiry_type}"
